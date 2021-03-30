@@ -10,13 +10,13 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        ParseObject.registerSubclass(Post.class);
 
-        // set applicationId, and server server based on the values in the back4app settings.
-        // any network interceptors must be added with the Configuration Builder given this syntax
+        ParseObject.registerSubclass(Post.class);
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("myAppId") // should correspond to Application Id env variable
-                .clientKey("yourClientKey")  // should correspond to Client key env variable
-                .server("https://parseapi.back4app.com").build());
+                .applicationId("7uvp7TfkqMwXrbFyQqGjiOV0Hks1k62iiS9XYz61")
+                .clientKey("NAGsLf84rbNpL8rAwuAs9YChSnfMybGmdJCxcilq")
+                .server("https://parseapi.back4app.com")
+                .build()
+        );
     }
 }

@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i(TAG, "onClick login button");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 login(username, password);
@@ -45,12 +46,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login(String username, String password){
+        Log.i(TAG, "Attempting to login user " + username);
         //Navigate to new activity if the user has signed properly
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e != null){
                     Log.e(TAG, "Issue with login", e);
+                    Toast.makeText(LoginActivity.this, "Issue with login!", Toast.LENGTH_SHORT);
                     return;
                 }
                 goMainActivity();
